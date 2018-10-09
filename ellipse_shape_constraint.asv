@@ -1,0 +1,15 @@
+function [x_bound,y_bound] = ellipse_shape_constraint(seed_pt)
+
+x_0 = seed_pt(1);
+y_0 = seed_pt(2);
+
+a = 5;
+b = 3;
+
+x = (x_0 - a) : (a/x_0)*0.1 : (x_0 + a);
+y_1 = y_0 + b*(sqrt(1 - ((x - x_0)/a).^2));
+y_2 = y_0 - b*(sqrt(1 - ((x - x_0)/a).^2));
+
+bound_points_mat = [ x, y_1 ; x, y_2];
+
+x_
